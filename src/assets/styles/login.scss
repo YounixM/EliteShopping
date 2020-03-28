@@ -1,0 +1,20 @@
+.loginForm {
+    width: 70%;
+    margin: 20px 0;
+
+    .actionButtons {
+        margin-top: 30px;
+
+        button {
+            margin-right: 10px;
+        }
+    }
+
+    .reset-password {
+        margin: 20px 0;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

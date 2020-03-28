@@ -1,0 +1,41 @@
+.header {
+    width: 100%;
+    padding: 0px 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    
+    .brand {
+        text-decoration: none;
+        display: inline-block;
+        width: 40%;
+
+        .brand-logo {
+            height: 100px;
+            width: 200px;
+            background-position: center;
+            background-size: cover;
+            background-image: url('../images/Elite\ Clothing.png');
+        }
+    }
+
+    .nav-items {
+        display: flex;
+        float: right;
+        justify-content: flex-end;
+        width: 60%;
+
+        .nav-item {
+            min-width: 100px;
+            text-align: center;
+            text-transform: uppercase;
+
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.signInSignUp {
+    padding: 20px;
+
+    display: flex;
+
+    .login, .signUp {
+        flex: 1;
+    }
+}
