@@ -28,13 +28,29 @@
         width: 60%;
 
         .nav-item {
+            display: flex;
+            align-items: center;
+            
             min-width: 100px;
             text-align: center;
             text-transform: uppercase;
-
+            
 
             &:hover {
                 cursor: pointer;
+            }
+
+            a {
+                border-bottom: 2px solid transparent;
+
+                -webkit-transition: border-bottom 0.3s ease-out;
+                -moz-transition: border-bottom 0.3s ease-out;
+                -o-transition: border-bottom 0.3s ease-out;
+                transition: border-bottom 0.3s ease-out;
+
+                &:hover {
+                    border-bottom: 2px solid;
+                }
             }
         }
     }

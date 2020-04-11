@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import "../../assets/styles/header.scss";
 import { auth } from "../../firebase/firebase.utils";
 
-class Header extends Component {
-  render() {
+import CartIcon from '../CartIcon/CartIcon.component';
+import Cart from '../Cart/cart.component';
+
+function Header ({ currentUser , showCart }) {
     return (
       <div className="header">
         <Link to="/" className="brand">
@@ -27,12 +29,10 @@ class Header extends Component {
           </h4>
 
           <h4 className="nav-item">
-            <Link to="/cart">
-              <i className="fas fa-shopping-cart"></i> Cart
-            </Link>
+              <CartIcon /> 
           </h4>
 
-          {this.props.currentUser ? (
+          {currentUser ? (
             <h4 className="nav-item">
               <div className='option' onClick={() => auth.signOut()}> Sign Out </div>
             </h4>
@@ -42,13 +42,18 @@ class Header extends Component {
             </h4>
           )}
         </div>
+         
+        {showCart &&
+          <Cart />
+        }
+        
       </div>
     );
-  }
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+  showCart: state.cart.showCart
 });
 
 export default connect(mapStateToProps)(Header);
