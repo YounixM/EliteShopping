@@ -6,6 +6,8 @@ import '../../assets/styles/cart.scss';
 import CustomButton from '../Base/Button/button.component';
 import CartItem from '../CartItem/cartItem.component';
 
+import { selectCartItems } from '../../redux/cart/cart.selectors';
+
 class Cart extends Component {
     constructor (props) {
         super(props);
@@ -33,8 +35,8 @@ class Cart extends Component {
     }
 }
 
-const mapStateToProps = ({ cart }) => ({
-    cartItems: cart.cartItems
+const mapStateToProps = state => ({
+    cartItems: selectCartItems(state)
 });
 
 export default connect(

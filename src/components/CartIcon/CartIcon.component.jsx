@@ -6,13 +6,10 @@ import '../../assets/styles/cart-icon.scss';
 import { ReactComponent as ShoppingIcon } from '../../assets/images/cart.svg';
 
 import { toggleCartVisibility } from '../../redux/cart/cart.actions';
+import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 
 
-function CartIcon ({ toggleCartVisibility, cartItems }) {
-    let itemsCount = cartItems.reduce(function (total, currentValue) {
-        return total + currentValue.count;
-    }, 0);
-
+function CartIcon ({ toggleCartVisibility, itemsCount }) {
     return (
         <div className='cart-icon' onClick={toggleCartVisibility}>
             <ShoppingIcon className='shopping-icon' />
@@ -21,8 +18,8 @@ function CartIcon ({ toggleCartVisibility, cartItems }) {
     )
 }
 
-const mapStateToProps = ({ cart }) => ({
-    cartItems: cart.cartItems
+const mapStateToProps = state => ({
+    itemsCount: selectCartItemsCount(state)
 });
 
 const mapDispatchToProps = dispatch => ({

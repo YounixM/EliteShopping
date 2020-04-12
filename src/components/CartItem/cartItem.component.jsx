@@ -9,7 +9,7 @@ export default function CartItem(props) {
             <img src={item.imageUrl} alt='item'/>
             <div className="item-details">
                 <span className="name">{item.name}</span>
-                <span className="price">$ {item.price * item.count}</span>
+                <span className="price"> {item.quantity} x ${item.price}</span>
             </div>
         </div>
     )

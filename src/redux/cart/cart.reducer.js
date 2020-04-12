@@ -10,14 +10,14 @@ function addItemToCart (currentCartItems, itemToAdd) {
     for(let i=0; i< items.length; i++)  {
         if(items[i].id === itemToAdd.id) {
             itemExistsInCart = true;
-            items[i].count += 1;
+            items[i].quantity += 1;
 
             break;
         }
     }
 
     if(!itemExistsInCart) {
-        itemToAdd.count = 1;
+        itemToAdd.quantity = 1;
         items.push(itemToAdd);
     }
 
