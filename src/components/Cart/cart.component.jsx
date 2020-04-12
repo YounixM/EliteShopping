@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 
 import '../../assets/styles/cart.scss';
 
@@ -8,9 +10,20 @@ import CartItem from '../CartItem/cartItem.component';
 
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 
+import { toggleCartVisibility } from '../../redux/cart/cart.actions';
+
 class Cart extends Component {
     constructor (props) {
         super(props);
+        this.handleCheckoutBtnClick = this.handleCheckoutBtnClick.bind(this);
+    }
+
+    handleCheckoutBtnClick = () => {
+        let { history } = this.props;
+
+        history.push('/checkout');
+
+        this.props.dispatch(toggleCartVisibility());
     }
     
     render() {
@@ -28,17 +41,15 @@ class Cart extends Component {
                 {this.props.cartItems.length === 0 &&
                     <span className='no-items'> No items in cart </span>
                 }
-
-                <CustomButton>CHECKOUT</CustomButton>
+                
+                <CustomButton customStyles='checkoutBtn' onClick={this.handleCheckoutBtnClick}>CHECKOUT</CustomButton>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({
-    cartItems: selectCartItems(state)
+const mapStateToProps = createStructuredSelector({
+    cartItems: selectCartItems
 });
 
-export default connect(
-    mapStateToProps
-)(Cart);
+export default withRouter(connect(mapStateToProps)(Cart));
