@@ -24,6 +24,35 @@
   
     .quantity {
       padding-left: 20px;
+
+      &::-moz-selection { /* Code for Firefox */
+        background: none;
+      }
+      
+      &::selection {
+        background: none;
+      }
+    }
+
+    .quantity-actions {
+        padding: 15px;
+
+        &.disabled {
+            pointer-events: none;
+            color: #dddddd;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::-moz-selection { /* Code for Firefox */
+            background: none;
+          }
+          
+        &::selection {
+          background: none;
+        }
     }
   
     .remove-button {

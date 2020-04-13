@@ -9,6 +9,8 @@ import "../../assets/styles/checkout.scss";
 
 class Checkout extends Component {
   render() {
+    let { cartItems, cartTotal } = this.props;
+
     return (
       <div className="checkout">
         {
@@ -33,11 +35,12 @@ class Checkout extends Component {
             </div>
     
             {
-                this.props.cartItems.map(item => {
-                    return <CheckoutItem key={item.id} item={item}/>;
-                })
+              cartItems.map(item => {
+                  return <CheckoutItem key={item.id} item={item} quantity={item.quantity} />;
+              })
             }
-            <div className="total">TOTAL: $ {this.props.cartTotal}</div>
+            
+            <div className="total">TOTAL: $ {cartTotal}</div>
           </div> :
           <div className='cart-empty'> NO ITEMS IN THE CART </div>
         }
