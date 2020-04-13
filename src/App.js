@@ -52,9 +52,7 @@ class App extends Component {
          <Header/>
          
         <Switch>
-          <Route path="/shop" exact>
-            <Shop />
-          </Route>
+          <Route path="/shop" component={Shop} />
           <Route
             path="/login"
             exact
