@@ -3,23 +3,53 @@
 }
 
 .checkout {
-    width: 60%;
-    min-height: 90vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
 
     .checkout-items {
-        width: 100%;    
+        max-height: calc(100vh - 200px);
+        overflow: auto;
+        margin-top: 30px;
     }
+
+    .cart-details {
+      flex-grow: 2;
+    }
+
+    .checkout-summary {
+      flex-grow: 1;
+      text-align: center;
+
+      .pay {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+
+        .info {
+          margin: 10px;
+        }
+
+        .card-number,
+        .card-exp,
+        .card-cvv {
+          margin-top: 10px;
+          color: black;
+        }
+
+        .StripeCheckout {
+          margin: 20px auto;
+          width: 150px;
+        }
+      }
+    }
+      
   
     .checkout-header {
       width: 100%;
-      padding: 10px 0;
+      padding: 10px;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid darkgrey;
+      border: 1px solid darkgrey;
   
       .header-block {
         text-transform: capitalize;
@@ -41,5 +71,4 @@
       margin-left: auto;
       font-size: 36px;
     }
-  }
-  
+}
