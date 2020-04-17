@@ -9,7 +9,7 @@ function CollectionCategory (props) {
     return (
         <div className='collection-category'>
             {
-                props.collection.items.map((collectionItem) => {
+                props.collection && props.collection.items.map((collectionItem) => {
                         return <CollectionItem item={collectionItem} key={collectionItem.id}/>
                     })
             }

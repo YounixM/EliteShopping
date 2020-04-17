@@ -9,7 +9,7 @@ function CollectionOverview (props) {
     return (
         <div className='collections-overview'>
                 {
-                    props.collection.map((collection) => {
+                    props.collection && props.collection.map((collection) => {
                         return  <CollectionPreview 
                                     collection={collection} 
                                     key={collection.id}    

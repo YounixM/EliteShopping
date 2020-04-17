@@ -2,6 +2,11 @@ import { createSelector } from 'reselect';
 
 const selectCollection = state => state.collection;
 
+export const selectIsFetchingCollectionItems = createSelector(
+    [selectCollection],
+    collections => collections.isFetching
+);
+
 export const selectCollectionItems = createSelector(
     [selectCollection],
     collections => collections.collection
